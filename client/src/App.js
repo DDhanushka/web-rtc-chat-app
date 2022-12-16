@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Typography, AppBar } from "@material-ui/core";
+import VideoPlayer from "./components/VideoPlayer";
+import Options from "./components/Options";
+import Notfications from "./components/Notfications";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className=" bg-slate-300 min-h-screen">
+      <div className="">
+        <h1 className="text-4xl font-bold mb-5 bg-slate-500 p-10">
+          Video Chat
+        </h1>
+        <div className="px-10">
+          <VideoPlayer />
+          <Options>
+            <Notfications />
+          </Options>
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
