@@ -7,41 +7,42 @@ const Options = ({ children }) => {
 		useContext(SocketContext);
 	const [idToCall, setIdToCall] = useState("");
 
+	const btnStyle =
+		"ml-3 py-2 px-4 bg-blue-500 border-2 border-blue-500 hover:bg-blue-700 text-white rounded outline-none";
+	const inputStyle = "ml-3 py-2 px-4 border-solid border-2 border-blue-500 outline-none";
+	const title = "font-semibold text-lg pb-4"
+
 	return (
-		<div className="flex flex-row">
+		<div className="flex flex-row mt-3 justify-between">
 			<div>
+				<p className={title}>Account info</p>
+				<label>Name: </label>
 				<input
-					className=" border-solid border-2 border-blue-500"
+					className={inputStyle}
 					value={name}
 					onChange={(e) => setName(e.target.value)}
 				/>
-				<p>Account info</p>
-				{console.log('me', me)}
 				<CopyToClipboard text={me}>
-					<button className="py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white rounded">
-						Copy ID
-					</button>
+					<button className={btnStyle}>Copy ID</button>
 				</CopyToClipboard>
 			</div>
-			<div>
-				<p>Make a call</p>
+			<div className="">
+				<p className={title}>Make a call</p>
+				<label>User ID: </label>
 				<input
-					className=" border-solid border-2 border-blue-500"
+					className={inputStyle}
 					value={idToCall}
 					onChange={(e) => setIdToCall(e.target.value)}
 				/>
 				{callAccepted && !callEnded ? (
 					<button
 						onClick={leaveCall}
-						className="py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white rounded"
+						className={btnStyle}
 					>
 						hang up
 					</button>
 				) : (
-					<button
-						onClick={() => callUser(idToCall)}
-						className="py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white rounded"
-					>
+					<button onClick={() => callUser(idToCall)} className={btnStyle}>
 						call
 					</button>
 				)}
