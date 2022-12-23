@@ -16,7 +16,8 @@ const Options = ({ children }) => {
 					onChange={(e) => setName(e.target.value)}
 				/>
 				<p>Account info</p>
-				<CopyToClipboard text={me} onCopy={() => null}>
+				{console.log('me', me)}
+				<CopyToClipboard text={me}>
 					<button className="py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white rounded">
 						Copy ID
 					</button>
